@@ -9,7 +9,7 @@
     if(!empty($nome) && !empty($categoria) && !empty($preco) && !empty($quantidade)) {
         $pdo = conexao::conectar();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO produto (nome, categoria, marca, preco, quantidade) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO produto (NOME_PRODUTO, CATEGORIA_PRODUTO, MARCA_PRODUTO, PRECO_PRODUTO, QUANTIDADE_PRODUTO) VALUES (?, ?, ?, ?, ?)";
         $query = $pdo->prepare($sql);
         $query->execute(array($nome, $categoria, $marca, $preco, $quantidade));
     }
