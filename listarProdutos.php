@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>ESTOQUE</title>
 </head>
 <body>
@@ -24,6 +25,23 @@
         </h4>
         
         <div class="container">
+            <ul id="slide-out" class="sidenav valign-center">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="imagens/industria.png" width="300px" height="180px">
+                        </div>
+                        <a href="#user"><img class="circle" src="imagens/icone.png"></a>
+                        <a href="#name"><span class="white-text name">João Dias</span></a>
+                        <a href="#email"><span class="white-text email">joaopedrodias0601@gmail.com</span></a>
+                    </div>
+                </li>
+                <li><a href="frminsCategoria.php"><i class="material-icons">add</i>ADICIONAR CATEGORIA</a></li>
+                <li><a href="frminsMarca.php"><i class="material-icons">add</i>ADICIONAR MARCA</a></li>
+                <li><div class="divider"></div></li>
+            </ul>
+            <a href="listarProdutos.php" data-target="slide-out" class="sidenav-trigger"><i class="material-icons teal-text">menu</i></a>
+
             <table>
                 <tr>
                     <th>ID</th>
@@ -58,3 +76,20 @@
     </div>
 </body>
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+  });
+
+  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+  // var collapsibleElem = document.querySelector('.collapsible');
+  // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+  // Or with jQuery
+
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+  });
+</script>
