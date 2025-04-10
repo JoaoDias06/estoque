@@ -36,37 +36,37 @@
                     <input type="text" class="form-control" id="txtnome" name="txtnome">    
                 </div>
         
-                <?php 
-                $cont = 0;
-                foreach ($listarCat as $categoria) {
-                ?>
                 <div class="offset-s2 col s8">
                     <label for="lblcategoria">Informe a Categoria do Produto</label>
                     <select id="txtcategoria" name="txtcategoria">
                         <option value=""></option>
+                        <?php 
+                            $cont = 0;
+                            foreach ($listarCat as $categoria) {
+                        ?>
                         <option value="<?php echo $categoria['ID_CATEGORIA']?>"><?php echo($categoria['ID_CATEGORIA'] . " - " . $categoria['NOME_CATEGORIA'])?></option>
+                        <?php 
+                            $cont++;
+                            }
+                        ?>
                     </select>
                 </div>
-                <?php 
-                $cont++;
-                }
-                ?>
         
-                <?php 
-                $cont = 0;
-                foreach ($listarMar as $marca) {
-                ?>
                 <div class="offset-s2 col s8">
                     <label for="lblmarca">Informe a Marca do Produto</label>
                     <select id="txtmarca" name="txtmarca">
                         <option value=""></option>
+                        <?php 
+                            $cont = 0;
+                            foreach ($listarMar as $marca) {
+                        ?>
                         <option value="<?php echo $marca['ID_MARCA']?>"><?php echo($marca['ID_MARCA'] . " - " . $marca['NOME_MARCA'])?></option>
+                        <?php 
+                            $cont++;
+                            }
+                        ?>
                     </select>
                 </div>
-                <?php 
-                $cont++;
-                }
-                ?>
 
                 <div class="input-field offset-s2 col s4">
                     <label for="lblpreco">Informe o Preço do Produto</label>
@@ -80,13 +80,13 @@
 
                 <div class="input-field col s8 offset-s2">
                     <br>
-                    <button class="btn waves-effect waves-light" type="submit" name="btngravar">Gravar
+                    <button class="btn waves-effect waves-light green" type="submit" name="btngravar">Gravar
                         <i class="material-icons right">save</i>
                     </button>
                     <button class="btn waves-effect waves-light orange" type="reset" name="btnReset">Limpar
                         <i class="material-icons right">brush</i>
                     </button>
-                    <button class="btn waves-effect waves-light indigo darken-4" type="button" name="btnVoltar"
+                    <button class="btn waves-effect waves-light red" type="button" name="btnVoltar"
                     onclick="JavaScript:location.href='listarProdutos.php'" >Voltar
                         <i class="material-icons right">arrow_back</i>
                     </button>
@@ -100,11 +100,6 @@
 </html>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems);
-    });
-
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems);
