@@ -17,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>ESTOQUE</title>
 </head>
-<body>
+<body class="grey lighten-5">
     <div class="col s12">
         <h4 class="card-panel teal lighten-2 white-text align center">Produtos no Estoque  
             <a class="btn-floating btn-medium waves-effect waves-light green hoverable" onclick="Javascript:location.href='frminsProduto.php'">
@@ -36,8 +36,13 @@
                         <a href="#email"><span class="white-text email">joaopedrodias0601@gmail.com</span></a>
                     </div>
                 </li>
+                <li><div class="divider"></div></li>
                 <li><a href="frminsCategoria.php"><i class="material-icons">add</i>ADICIONAR CATEGORIA</a></li>
                 <li><a href="frminsMarca.php"><i class="material-icons">add</i>ADICIONAR MARCA</a></li>
+                <li><div class="divider"></div></li>
+                <li><a href="listarProdutos.php"><i class="material-icons">list</i>PRODUTOS</a></li>
+                <li><a href="listarCategorias.php"><i class="material-icons">list</i>CATEGORIAS</a></li>
+                <li><a href="listarMarcas.php"><i class="material-icons">list</i>MARCAS</a></li>
                 <li><div class="divider"></div></li>
             </ul>
             <a href="listarProdutos.php" data-target="slide-out" class="sidenav-trigger"><i class="material-icons teal-text">menu</i></a>
@@ -50,6 +55,7 @@
                     <th class="center align">MARCA</th>
                     <th class="center align">PREÇO</th>
                     <th class="center align">QUANTIDADE</th>
+                    <th class="center align">FUNÇÕES</th>
                 </tr>
 
                 <?php 
@@ -63,6 +69,16 @@
                     <td class="center align"><?php echo $produto['NOME_MARCA']?></td>
                     <td class="center align"><?php echo $produto['PRECO_PRODUTO']?></td>
                     <td class="center align"><?php echo $produto['QUANTIDADE_PRODUTO']?></td>
+                    <td class="center align">
+                        <a class="btn-small waves-effect waves-light yellow darken-3" 
+                            onclick="JavaScript:location:href='frmedtProduto.php?id=' + <?php echo $produto['ID_PRODUTO']?>">
+                            <i class="material-icons">edit</i>
+                        </a>
+                        <a class="btn-small waves-effect waves-light red" 
+                            onclick="JavaScript:location:href='frmremProduto.php?id=' + <?php echo $produto['ID_PRODUTO']?>">
+                            <i class="material-icons">delete</i>
+                        </a>
+                    </td>
                 </tr>
                 <?php 
                     $cont++;
