@@ -1,0 +1,65 @@
+<?php 
+    $id = $_GET['id'];
+    include '../conexao.php';
+    $pdo = conexao::conectar();
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM categoria WHERE ID_CATEGORIA=?";
+    $query = $pdo->prepare($sql);
+    $query->execute(array($id));
+    $categoria = $query->fetch(PDO::FETCH_ASSOC);
+    conexao::desconectar();
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Editar Categoria</title>
+</head>
+<body class="grey lighten-5">
+    <div class="container white">
+        <div>
+            <h3 class="card-panel teal lighten-2 white-text align center">Editar Produto</h3>
+        </div>
+
+        <div class="row">
+            <form action="edtCategoria.php" method="POST" class="col s12" id="frmedtProduto">
+                <div class="input-field col s8 offset-s2">
+                    <label for="lblid">ID da categoria</label>
+                    <br>
+                    <h6><b class="black-text"><?php echo $id?></b></h6>
+                    <input type="hidden" name="id" value="<?php echo $id?>">
+                </div>
+
+                <div class="input-field col s8 offset-s2">
+                    <label for="lblnome">Informe o Nome da Categoria</label>
+                    <input type="text" class="form-control" id="txtnome" name="txtnome" value="<?php echo $categoria['NOME_CATEGORIA']?>">
+                </div>
+
+                <div class="input-field col s8 offset-s2">
+                    <label for="lblpreco">Informe a Descrição da Categoria</label>
+                    <input type="text" id="txtdescricao" name="txtdescricao" class="form-control" value="<?php echo $categoria['DESCRICAO_CATEGORIA']?>">
+                </div>
+
+                <div class="input field col s8 offset-s2">
+                    <br>
+                    <button class="btn waves-effect waves-light green" type="submit" name="btngravar">Gravar
+                        <i class="material-icons right">save</i>
+                    </button>
+                    <button class="btn waves-effect waves-light orange" type="reset" name="btnreset">Limpar
+                        <i class="material-icons right">brush</i>
+                    </button>
+                    <button class="btn waves-effect waves-light red" type="button" name="btnvoltar" 
+                        onclick="JavaScript:location.href='listarCategorias.php'" >Voltar
+                        <i class="material-icons right">arrow_back</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
