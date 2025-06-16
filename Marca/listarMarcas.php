@@ -17,7 +17,7 @@
     <title>Marcas</title>
 </head>
 <body class="grey lighten-5">
-    <div class="container">
+    <div class="container white">
         <div>
             <h4 class="card-panel teal lighten-2 white-text align center">Marcas no Estoque
                 <a class="btn-floating btn-medium waves-effect waves-light green hoverable" onclick="JavaScript:location:href='frminsMarca.php'">
@@ -43,12 +43,12 @@
                     <td class="center align"><?php echo $marca['EMAIL_MARCA'] ?></td>
                     <td class="center align">
                         <a class="btn-small waves-effect waves-light yellow darken-3"
-                            onclick="JavaScript:location:href='frmedtMarca.php?id' + <?php echo $marca['ID_MARCA']?>">
+                            onclick="JavaScript:location:href='frmedtMarca.php?id=' + <?php echo $marca['ID_MARCA']?>">
                             <i class="material-icons">edit</i>
                         </a>
                         <a class="btn-small waves-effect waves-light red"
-                            onclick="JavaScript:location:href='frmremMarca.php?id' + <?php echo $marca['ID_MARCA']?>">
-                            <i class="material-icons">edit</i>
+                            onclick="JavaScript:location:href='frmremMarca.php?id=' + <?php echo $marca['ID_MARCA']?>">
+                            <i class="material-icons">delete</i>
                         </a>
                     </td>
                 </tr>
