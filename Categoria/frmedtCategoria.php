@@ -23,11 +23,11 @@
 <body class="grey lighten-5">
     <div class="container white">
         <div>
-            <h3 class="card-panel teal lighten-2 white-text align center">Editar Produto</h3>
+            <h3 class="card-panel teal lighten-2 white-text align center">Editar Categoria</h3>
         </div>
 
         <div class="row">
-            <form action="edtCategoria.php" method="POST" class="col s12" id="frmedtProduto">
+            <form action="edtCategoria.php" method="POST" class="col s12" id="frmedtCategoria">
                 <div class="input-field col s8 offset-s2">
                     <label for="lblid">ID da categoria</label>
                     <br>
