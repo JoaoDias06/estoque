@@ -19,11 +19,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Remover Produto</title>
 </head>
-<body class="grey lighten-3">
-    <div class="col">
-        <h3 class="card-panel teal lighten-2 white-text align center">Remover Produto</h3>
-
-        <div class="container">
+<body class="grey lighten-5">
+    <div class="container white">
+        <div>
+            <h3 class="card-panel teal lighten-2 white-text align center">Remover Produto</h3>
+        </div>
+        <div>
             <h5 class="align center">Informações do Produto</h5>
             <br>
             <h6>ID: <?php echo $id?></h6>

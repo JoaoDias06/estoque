@@ -34,9 +34,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Editar Produto</title>
 </head>
-<body class="grey lighten-3">
-    <div>
-        <h3 class="card-panel teal lighten-2 white-text align center">Editar Produto</h3>
+<body class="grey lighten-5">
+    <div class="container white">
+        <div>
+            <h3 class="card-panel teal lighten-2 white-text align center">Editar Produto</h3>
+        </div>
 
         <div class="row">
             <form action="edtProduto.php" method="POST" class="col s12" id="frmedtProduto">

@@ -25,10 +25,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Inserir Produto</title>
 </head>
-<body class="grey lighten-3">
-    <div class="col">
-        <h3 class="card-panel teal lighten-2 white-text align center">Adicionar Novo Produto</h3>
-        
+<body class="grey lighten-5">
+    <div class="container white">
+        <div>
+            <h3 class="card-panel teal lighten-2 white-text align center">Adicionar Novo Produto</h3>
+        </div>
+
         <div class="row">
             <form action="insProduto.php" method="post" id="frminsProduto" class="col s12">
                 <div class="input-field col s8 offset-s2">
