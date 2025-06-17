@@ -1,4 +1,5 @@
 <?php 
+    include '../menu.php';
     include '../conexao.php';
     $pdo = conexao::conectar();
     $sql = "SELECT * FROM categoria";

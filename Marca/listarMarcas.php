@@ -1,4 +1,5 @@
 <?php 
+    include '../menu.php';
     include '../conexao.php';
     $pdo = conexao::conectar();
     $sql = "SELECT * FROM marca";
@@ -37,7 +38,7 @@
                     $cont = 0;
                     foreach ($listarMarca as $marca) {
                 ?>
-                <tr>
+                <tr class="grey lighten-3">
                     <td><?php echo $marca['ID_MARCA'] ?></td>
                     <td class="center align"><?php echo $marca['NOME_MARCA'] ?></td>
                     <td class="center align"><?php echo $marca['EMAIL_MARCA'] ?></td>

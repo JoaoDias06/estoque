@@ -1,4 +1,5 @@
 <?php
+include '../menu.php';
 include '../conexao.php';
 $pdo = conexao::conectar();
 $sql1 = "SELECT * FROM produto JOIN categoria ON produto.CATEGORIA_PRODUTO = categoria.ID_CATEGORIA JOIN marca ON produto.MARCA_PRODUTO = marca.ID_MARCA";
@@ -71,5 +72,4 @@ conexao::desconectar();
 
     <h6 class="center align">O Número de Itens no Estoque é de <?php echo $cont ?></h6>
 </body>
-
 </html>
