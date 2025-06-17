@@ -1,5 +1,5 @@
 <?php 
-    include '../menu.php';
+    include '../Pagina Principal/menu.php';
     include '../conexao.php';
     $pdo = conexao::conectar();
     $sql = "SELECT * FROM marca";

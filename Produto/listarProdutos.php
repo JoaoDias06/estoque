@@ -1,5 +1,5 @@
 <?php
-include '../menu.php';
+include '../Pagina Principal/menu.php';
 include '../conexao.php';
 $pdo = conexao::conectar();
 $sql1 = "SELECT * FROM produto JOIN categoria ON produto.CATEGORIA_PRODUTO = categoria.ID_CATEGORIA JOIN marca ON produto.MARCA_PRODUTO = marca.ID_MARCA";
