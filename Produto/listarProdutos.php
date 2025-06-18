@@ -1,8 +1,15 @@
 <?php
 include '../Pagina Principal/menu.php';
+
+if (isset($_GET['busca']))
+        $busca = trim($_GET['busca']);
+    else $busca = '';
+
 include '../conexao.php';
 $pdo = conexao::conectar();
 $sql1 = "SELECT * FROM produto JOIN categoria ON produto.CATEGORIA_PRODUTO = categoria.ID_CATEGORIA JOIN marca ON produto.MARCA_PRODUTO = marca.ID_MARCA";
+if ($busca != '')
+        $sql1 = $sql1 . " WHERE NOME_PRODUTO LIKE '%" . $busca . "%' ORDER BY NOME_PRODUTO;";
 $listarprodutos = $pdo->query($sql1);
 conexao::desconectar();
 ?>
@@ -27,6 +34,20 @@ conexao::desconectar();
                 <a class="btn-floating btn-medium waves-effect waves-light green hoverable" onclick="Javascript:location.href='frminsProduto.php'">
                     <i class="material-icons">add</i></a>
             </h4>
+        </div>
+
+        <div class="row ">
+        <div class="input-field">
+            <form action="listarProdutos.php" method="GET" id="frmbscproduto" class="s12">
+                
+                    <label for="lblnome" class="teal-text">Informe o nome do Produto</label>
+                    <input type="text" placeholder="Informe o nome do Produto a ser pesquisado" class="form-control s6" id="txtbusca" name="busca">
+                    <button class="btn waves-effect waves-light col s2 teal darken-4" type="SUBMIT">
+                        BUSCAR <i class="material-icons right">search</i>
+                    </button>
+                
+            </form>
+        </div>
         </div>
 
         <table>
