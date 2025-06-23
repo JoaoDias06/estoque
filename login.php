@@ -15,7 +15,7 @@
        session_start();
        $_SESSION['usuario'] = $dados['usuario'];
        $_SESSION['nome'] = $dados['nome']; 
-       header("location:./Pagina Principal/menu.php"); 
+       header("location:./Pagina Principal/home.php"); 
    }
    else
     header("location:index.php")

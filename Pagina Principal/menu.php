@@ -20,7 +20,7 @@
   <nav class="teal darken-4">
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="../Pagina Principal/menu.php">Inicio</a></li>
+        <li><a href="../Pagina Principal/home.php">Inicio</a></li>
         <li><a href="../Produto/listarProdutos.php">Produtos</a></li>
         <li><a href="../Categoria/listarCategorias.php">Categorias</a></li>
         <li><a href="../Marca/listarMarcas.php">Marcas</a></li>
@@ -38,8 +38,9 @@
       <a href="#name"><span class="white-text name">João Dias</span></a>
       <a href="#email"><span class="white-text email">joaopedrodias0601@gmail.com</span></a>
     </div></li>
-    <li><a href="listarCompetidores.php"><i class="material-icons">person</i>COMPETIDOR</a></li>
-    <li><a href="#!"><i class="material-icons">event</i>RODEIOS</a></li>
+    <li><a href="../Produto/listarProdutos.php"><i class="material-icons">business_center</i>Produtos</a></li>
+    <li><a href="../Categoria/listarCategorias.php"><i class="material-icons">collections_bookmark</i>Categorias</a></li>
+    <li><a href="../Marca/listarMarcas.php"><i class="material-icons">event_note</i>Marcas</a></li>
     <li><div class="divider"></div></li>
     <li><a href="../logout.php"><i class="material-icons">exit_to_app</i>Logout</a></li>
    </ul>
