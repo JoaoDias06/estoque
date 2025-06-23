@@ -1,8 +1,15 @@
 <?php 
     include '../Pagina Principal/menu.php';
+
+    if (isset($_GET['busca']))
+        $busca = trim($_GET['busca']);
+    else $busca = '';
+
     include '../conexao.php';
     $pdo = conexao::conectar();
     $sql = "SELECT * FROM marca";
+    if ($busca != '')
+        $sql = $sql . " WHERE NOME_MARCA LIKE '%" . $busca . "%' ORDER BY NOME_MARCA;";
     $listarMarca = $pdo->query($sql);
     conexao::desconectar();
 ?>
@@ -25,6 +32,20 @@
                 <i class="material-icons">add</i></a>
             </h4>
         </div>
+
+        <div class="row ">
+        <div class="input-field">
+            <form action="listarMarcas.php" method="GET" id="frmbscmarca" class="s12">
+                    <label for="lblnome" class="teal-text">Informe o nome da Marca</label>
+                    <input type="text" placeholder="Informe o nome da Marca a ser pesquisada" class="form-control s6" id="txtbusca" name="busca">
+                    <button class="btn waves-effect waves-light col s2 teal darken-4" type="SUBMIT">
+                        BUSCAR <i class="material-icons right">search</i>
+                    </button>
+                
+            </form>
+        </div>
+        </div>
+
         <div>
             <table>
                 <tr>
