@@ -2,15 +2,29 @@
 include '../Pagina Principal/menu.php';
 
 if (isset($_GET['busca']))
-        $busca = trim($_GET['busca']);
-    else $busca = '';
+    $busca = trim($_GET['busca']);
+else $busca = '';
 
 include '../conexao.php';
 $pdo = conexao::conectar();
 $sql1 = "SELECT * FROM produto JOIN categoria ON produto.CATEGORIA_PRODUTO = categoria.ID_CATEGORIA JOIN marca ON produto.MARCA_PRODUTO = marca.ID_MARCA";
 if ($busca != '')
-        $sql1 = $sql1 . " WHERE NOME_PRODUTO LIKE '%" . $busca . "%' ORDER BY NOME_PRODUTO;";
+    $sql1 = $sql1 . " WHERE NOME_PRODUTO LIKE '%" . $busca . "%' ORDER BY NOME_PRODUTO;";
 $listarprodutos = $pdo->query($sql1);
+$sql_marca = "
+    SELECT
+        m.NOME_MARCA,
+        SUM(p.QUANTIDADE_PRODUTO) AS QuantidadeTotalEstoquePorMarca
+    FROM
+        produto AS p
+    JOIN
+        marca AS m ON p.MARCA_PRODUTO = m.ID_MARCA
+    GROUP BY
+        m.NOME_MARCA
+    ORDER BY
+        m.NOME_MARCA;
+";
+$resultado_marca = $pdo->query($sql_marca);
 conexao::desconectar();
 ?>
 
@@ -37,17 +51,17 @@ conexao::desconectar();
         </div>
 
         <div class="row ">
-        <div class="input-field">
-            <form action="listarProdutos.php" method="GET" id="frmbscproduto" class="s12">
-                
+            <div class="input-field">
+                <form action="listarProdutos.php" method="GET" id="frmbscproduto" class="s12">
+
                     <label for="lblnome" class="teal-text">Informe o nome do Produto</label>
                     <input type="text" placeholder="Informe o nome do Produto a ser pesquisado" class="form-control s6" id="txtbusca" name="busca">
                     <button class="btn waves-effect waves-light col s2 teal darken-4" type="SUBMIT">
                         BUSCAR <i class="material-icons right">search</i>
                     </button>
-                
-            </form>
-        </div>
+
+                </form>
+            </div>
         </div>
 
         <table>
@@ -92,5 +106,30 @@ conexao::desconectar();
 
 
     <h6 class="center align">O Número de Itens no Estoque é de <?php echo $cont ?></h6>
+
+    <br>
+
+    <div class="container white" style="margin-top: 20px;">
+        <h4 class="card-panel teal lighten-2 white-text align center">Estoque Total por Marca</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Quantidade Total em Estoque</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($resultado_marca as $item_marca) { ?>
+                    <tr>
+                        <td><?php echo $item_marca['NOME_MARCA']; ?></td>
+                        <td><?php echo $item_marca['QuantidadeTotalEstoquePorMarca']; ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
 </body>
+
 </html>
