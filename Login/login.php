@@ -2,7 +2,7 @@
     $usuario = trim($_POST['usuario']);
     $senha = trim($_POST['senha']);
 
-   include 'conexao.php'; 
+   include '../conexao.php'; 
    $pdo = Conexao::conectar(); 
    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    $sql = "SELECT  * FROM usuarios where usuario LIKE ?;"; 
@@ -15,7 +15,7 @@
        session_start();
        $_SESSION['usuario'] = $dados['usuario'];
        $_SESSION['nome'] = $dados['nome']; 
-       header("location:./Pagina Principal/home.php"); 
+       header("location:../Pagina Principal/home.php"); 
    }
    else
     header("location:index.php")
