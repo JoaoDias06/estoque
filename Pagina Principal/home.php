@@ -17,8 +17,9 @@
 </head>
 <body class="grey lighten-5">
     <div class="container white">
-        <div>
+        <div class="center align">
             <h4 class="card-panel teal lighten-2 white-text align center">Pagina Principal</h4>
+            <img src="../imagens/home.png" width="800px" height="500px">
         </div>
     </div>
 </body>

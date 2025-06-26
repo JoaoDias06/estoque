@@ -64,6 +64,11 @@ $pdo = conexao::conectar();
                 <button class="btn waves-effect waves-light teal darken-4" type="submit">Registrar
                     <i class="material-icons right">send</i>
                 </button>
+
+                <button class="btn waves-effect waves-light red" type="button" name="btnvoltar" 
+                    onclick="JavaScript:location.href='listarMovimento.php'" >Voltar
+                    <i class="material-icons right">arrow_back</i>
+                </button>
             </form>
     </div>
 

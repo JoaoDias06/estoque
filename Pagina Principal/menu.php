@@ -36,6 +36,7 @@
       <div class="background">
         <img src="../imagens/industria.png" width="300px" height="180px">
       </div>
+      <a href="#user"><img class="circle" src="../imagens/icone.png"></a>
       <a href="#name"><span class="white-text name">João Dias</span></a>
       <a href="#email"><span class="white-text email">joaopedrodias0601@gmail.com</span></a>
     </div></li>
